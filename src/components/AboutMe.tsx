@@ -2,21 +2,24 @@ import {useEffect, useState} from "react";
 import {characters, period_month} from "../utils/constants.ts";
 import {HeroInfo} from "../utils/types";
 import {SWrapper} from "../hoc/SWrapper.tsx";
+import * as React from "react";
+
+
 
 interface Props {
-    heroId: string;
+    heroId?: string
 }
 
-const AboutMe = ({heroId}:Props) => {
+const AboutMe:React.FC<Props> = ({heroId}:Props) => {
     const [hero, setHero] = useState<HeroInfo>();
 
     useEffect(() => {
 
-        const hero = JSON.parse(localStorage.getItem(heroId)!);
+        const hero = JSON.parse(localStorage.getItem(heroId!)!);
         if (hero && ((Date.now() - hero.timestamp) < period_month)) {
             setHero(hero.payload);
         } else {
-            fetch(characters[heroId].url)
+            fetch(characters[heroId!].url)
                 .then(response => response.json())
                 .then(data => {
                     const info = {
@@ -30,7 +33,7 @@ const AboutMe = ({heroId}:Props) => {
                         eye_color: data.eye_color
                     }
                     setHero(info);
-                    localStorage.setItem(heroId, JSON.stringify({
+                    localStorage.setItem(heroId!, JSON.stringify({
                         payload: info,
                         timestamp: Date.now()
                     }));
