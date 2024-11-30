@@ -7,7 +7,7 @@ import ErrorPage from "../components/ErrorPage.tsx";
 
 
 export const SWrapper =<T extends object>  (WrappedComponent: ComponentType<T>) => (props:T) => {
-    const {heroId = defaultHero} = useParams();
+    let {heroId = defaultHero} = useParams();
     const {changeHero} = useContext(SWContext);
 
     useEffect(() => {

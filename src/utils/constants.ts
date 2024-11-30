@@ -76,7 +76,9 @@ export const characters: Characters = {
         name: "Millennium Falcon",
         img: friend7,
         url: `${base_url + version}/transports/10`
-    }
+    },
+
 };
 export const friends = Object.keys(characters);
 export const defaultHero = 'luke';
+export const errorHero = 'error';
