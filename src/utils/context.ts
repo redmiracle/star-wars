@@ -8,4 +8,6 @@ export const SWContext = createContext<SWContextValue>({
     changeHero: (hero: string) => console.log(hero),
     isError:false,
     setIsError:(isError: boolean) =>console.log(isError),
+    isLoading:false,
+    setIsLoading:(isLoading: boolean) => console.log(isLoading),
 });

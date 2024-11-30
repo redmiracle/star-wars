@@ -8,9 +8,10 @@ import ErrorPage from "../components/ErrorPage.tsx";
 
 export const SWrapper =<T extends object>  (WrappedComponent: ComponentType<T>) => (props:T) => {
     let {heroId = defaultHero} = useParams();
-    const {changeHero} = useContext(SWContext);
+    const {changeHero,setIsLoading} = useContext(SWContext);
 
     useEffect(() => {
+        setIsLoading(true);
         if (!characters[heroId]) {
             return;
         }

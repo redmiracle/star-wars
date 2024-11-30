@@ -3,7 +3,7 @@ import {navItems} from "../utils/constants.ts";
 
 const Navigation = () => {
     return (
-        <nav className={`fixed top-2 left-10`}>
+        <nav className={`fixed top-2 left-10 z-50`}>
             <div className={`flex space-x-4`}>
                 {navItems.map(item => <NavItem item={item} key={item.path}/>)}
             </div>
