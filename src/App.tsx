@@ -14,11 +14,14 @@ function App() {
     return (
         <>
             <SWContext.Provider value={{
-                hero, changeHero: setHero,isError,setIsError,isLoading,setIsLoading
+                hero, changeHero: setHero,isError,setIsError,setIsLoading
             }}>
+                <div className={!isLoading ? "opacity-0 z-1" :''}>
                 <Header/>
                 <Main/>
                 <Footer/>
+                </div>
+
             </SWContext.Provider>
         </>
     )
